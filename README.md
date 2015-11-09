@@ -12,9 +12,10 @@ Add plugin to your project `rebar.config` file.
 
 ##Usage
 
-Define ASN.1 compiler options in `rebar.config` and add output directory to Erlang source directories. Supported ASN.1 compiler options
-are listed at [ASN.1 compiler documentation](http://www.erlang.org/doc/man/asn1ct.html). In addition, `{indir, "asn1"}` can be used for defining the directory containing
-the ASN.1 modules. The default input directory is `"asn1"`.
+Define ASN.1 compiler options in `rebar.config` and add output directory to Erlang source directories. 
+Supported options are listed at [ASN.1 compiler documentation](http://www.erlang.org/doc/man/asn1ct.html). 
+In addition, `{asndir, "asn1"}` can be used for defining the directory containing
+the ASN.1 modules. The default options are `[{asndir, "asn1"}, {outdir, "asn1_gen"}, noobj]`.
 
     {asn1_opts, [{outdir, "asn1_gen"}, uper]}.
     {src_dirs, ["src", "asn1_gen"]}.
