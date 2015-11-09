@@ -44,11 +44,17 @@ do_compile(State) ->
             OutDir   = filename:join(AppPath, proplists:get_value(outdir, Opts)),
 
             file:make_dir(OutDir),
-            lists:foreach(compile_asn_file(Opts), AsnFiles)
+            lists:foreach(compile_asn_file(Opts), lists:filter(needs_compile(OutDir), AsnFiles))
     end.
 
 compile_asn_file(Opts) ->
     fun (AsnFile) ->
             rebar_api:info("Generating parser for: ~p", [AsnFile]),
             asn1ct:compile(AsnFile, Opts)
+    end.
+
+needs_compile(OutDir) ->
+    fun (Source) ->
+            Target = filename:join(OutDir, filename:basename(Source, ".asn1") ++ ".erl"),
+            filelib:last_modified(Source) > filelib:last_modified(Target)
     end.
