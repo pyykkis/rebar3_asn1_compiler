@@ -9,7 +9,7 @@
   {env,[]},
   {modules, []}
 
- ,{contributors, ["Jarno Keskikangas"]}
+ ,{maintainers, ["Jarno Keskikangas"]}
  ,{licenses, ["MIT"]}
  ,{links, [{"Github", "https://github.com/pyykkis/rebar3_asn1_compiler"}]}
 ]}.
