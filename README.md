@@ -1,6 +1,6 @@
 #ASN.1 compiler plugin for Rebar3
 
-Plugin for compiling ASN.1 definitions with Rebar3.
+Plugin for compiling ASN.1 modules with Rebar3.
 
 ##Installation
 
