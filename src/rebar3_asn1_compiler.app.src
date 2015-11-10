@@ -1,5 +1,5 @@
 {application, 'rebar3_asn1_compiler',
- [{description, "Compile ASN.1 with Rebar3"},
+ [{description, "Compile ASN.1 modules with Rebar3"},
   {vsn, "1.0.0"},
   {registered, []},
   {applications,
@@ -8,4 +8,8 @@
    ]},
   {env,[]},
   {modules, []}
+
+ ,{contributors, ["Jarno Keskikangas"]}
+ ,{licenses, ["MIT"]}
+ ,{links, [{"Github", "https://github.com/pyykkis/rebar3_asn1_compiler"}]}
 ]}.
