@@ -7,7 +7,7 @@ Plugin for compiling ASN.1 definitions with Rebar3.
 Add plugin to your project `rebar.config` file.
 
     {plugins, [
-        { rebar3_asn1_compiler, {git, "git@github.com:pyykkis/rebar3_asn1_compiler.git", {branch, "master"}}}
+        { rebar3_asn1_compiler, "1.0.0"}
     ]}.
 
 ##Usage
