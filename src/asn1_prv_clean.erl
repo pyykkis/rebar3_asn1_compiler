@@ -25,7 +25,8 @@ init(State) ->
 
 -spec do(rebar_state:t()) -> {ok, rebar_state:t()} | {error, string()}.
 do(State) ->
-    AppPaths = lists:map(fun rebar_app_info:dir/1, rebar_state:project_apps(State)),
+    Apps = rebar3_asn1_compiler:get_target_apps(State),
+    AppPaths = lists:map(fun rebar_app_info:dir/1, Apps),
     lists:foreach(do_clean(State), AppPaths),
     {ok, State}.
 
