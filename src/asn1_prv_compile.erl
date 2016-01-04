@@ -43,9 +43,10 @@ do_compile(State) ->
             AsnDir   = filename:join(AppPath, proplists:get_value(asndir, Opts)),
             AsnFiles = filelib:wildcard(filename:join([AppPath, AsnDir, "*.asn1"])),
             OutDir   = filename:join(AppPath, proplists:get_value(outdir, Opts)),
+            Opts1    = lists:keyreplace(outdir, 1, Opts, {outdir, OutDir}),
 
-            file:make_dir(OutDir),
-            lists:foreach(compile_asn_file(Opts), lists:filter(needs_compile(OutDir), AsnFiles))
+            filelib:ensure_dir(filename:join(OutDir, "dummy")),
+            lists:foreach(compile_asn_file(Opts1), lists:filter(needs_compile(OutDir), AsnFiles))
     end.
 
 compile_asn_file(Opts) ->
